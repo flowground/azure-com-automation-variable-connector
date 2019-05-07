@@ -1,0 +1,60 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 90,
+            "pattern": "^[-\\w\\._]+$"
+        },
+        "automationAccountName": {
+            "required": true,
+            "type": "string"
+        },
+        "variableName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The parameters supplied to the create or update variable operation.",
+            "properties": {
+                "name": {
+                    "description": "Gets or sets the name of the variable.",
+                    "type": "string"
+                },
+                "properties": {
+                    "description": "Gets or sets the properties of the variable.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "description": {
+                            "description": "Gets or sets the description of the variable.",
+                            "type": "string"
+                        },
+                        "isEncrypted": {
+                            "description": "Gets or sets the encrypted flag of the variable.",
+                            "type": "boolean"
+                        },
+                        "value": {
+                            "description": "Gets or sets the value of the variable.",
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "required": [
+                "name",
+                "properties"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
